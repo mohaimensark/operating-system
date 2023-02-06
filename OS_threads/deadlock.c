@@ -4,7 +4,7 @@
 #include <unistd.h>
 #include <string.h>
 #include <time.h>
-
+//Done 
 #define THREAD_NUM 8
 
 pthread_mutex_t mutexFuel;
@@ -12,12 +12,16 @@ int fuel = 50;
 pthread_mutex_t mutexWater;
 int water = 10;
 
-void* routine(void* args) {
-    if (rand() % 2 == 0) {
+void *routine(void *args)
+{
+    if (rand() % 2 == 0)
+    { // here , every thread is waiting for one another
         pthread_mutex_lock(&mutexFuel);
         sleep(1);
         pthread_mutex_lock(&mutexWater);
-    } else {
+    }
+    else
+    {
         pthread_mutex_lock(&mutexWater);
         sleep(1);
         pthread_mutex_lock(&mutexFuel);
@@ -30,19 +34,24 @@ void* routine(void* args) {
     pthread_mutex_unlock(&mutexWater);
 }
 
-int main(int argc, char *argv[]) {
+int main(int argc, char *argv[])
+{
     pthread_t th[THREAD_NUM];
     pthread_mutex_init(&mutexFuel, NULL);
     pthread_mutex_init(&mutexWater, NULL);
     int i;
-    for (i = 0; i < THREAD_NUM; i++) {
-        if (pthread_create(&th[i], NULL, &routine, NULL) != 0) {
+    for (i = 0; i < THREAD_NUM; i++)
+    {
+        if (pthread_create(&th[i], NULL, &routine, NULL) != 0)
+        {
             perror("Failed to create thread");
         }
     }
 
-    for (i = 0; i < THREAD_NUM; i++) {
-        if (pthread_join(th[i], NULL) != 0) {
+    for (i = 0; i < THREAD_NUM; i++)
+    {
+        if (pthread_join(th[i], NULL) != 0)
+        {
             perror("Failed to join thread");
         }
     }
