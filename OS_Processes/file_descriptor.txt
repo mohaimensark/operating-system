@@ -1,0 +1,40 @@
+Here are the common file descriptor functions in Unix C:
+
+open(const char *pathname, int flags, mode_t mode)
+
+pathname: a string representing the file path
+flags: file status flags (e.g. O_RDONLY, O_WRONLY, O_RDWR)
+mode: permissions for the new file (only used if the file is created)
+return value: a non-negative integer, which is the file descriptor, or -1 if the call fails.
+close(int fd)
+
+fd: file descriptor returned by open()
+return value: 0 if successful, -1 if there is an error
+read(int fd, void *buf, size_t count)
+
+fd: file descriptor returned by open()
+buf: a buffer to store the read data
+count: the number of bytes to read
+return value: the number of bytes read, 0 if the end of file is reached, -1 if there is an error
+write(int fd, const void *buf, size_t count)
+
+fd: file descriptor returned by open()
+buf: a buffer containing the data to write
+count: the number of bytes to write
+return value: the number of bytes written, -1 if there is an error
+lseek(int fd, off_t offset, int whence)
+
+fd: file descriptor returned by open()
+offset: the number of bytes to move the file pointer
+whence: the starting point for the file pointer (e.g. SEEK_SET, SEEK_CUR, SEEK_END)
+return value: the new file position, -1 if there is an error
+dup(int fd)
+
+fd: file descriptor returned by open()
+return value: a new file descriptor that refers to the same file, or -1 if the call fails.
+dup2(int oldfd, int newfd)
+
+oldfd: file descriptor returned by open()
+newfd: the desired file descriptor
+return value: newfd if successful, or -1 if there is an error
+Note: The above functions and parameters are standard to all Unix-like operating systems, but the behavior may vary depending on the implementation.

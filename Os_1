@@ -1,0 +1,9 @@
+Important commands:
+1)Running a command for .bin file using qemu in ubuntu : qemu-system-x86_64 -hda boot_sect_hello.bin
+2)
+
+
+
+Snap-store related commands:
+1) snap refresh --hold=forever // IT will hold refreshing update of snap
+2) snap refresh --unhold 

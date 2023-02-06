@@ -1,0 +1,5 @@
+A race condition is a situation in which two or more threads access shared data and try to modify it simultaneously, leading to unexpected or inconsistent results. In a race condition, the outcome depends on the relative timing of the threads, making it difficult to predict the result.
+
+For example, consider a program that increments a counter. If two threads each increment the counter, there is a race condition because the outcome depends on which thread updates the counter first. If one thread increments the counter and then the other thread increments it, the result is different than if both threads increment the counter at the same time.
+
+In multithreaded programming, race conditions can lead to unpredictable results and can be difficult to debug. To avoid race conditions, it's important to use synchronization mechanisms such as mutexes, semaphores, or locks to ensure that only one thread can access shared data at a time.

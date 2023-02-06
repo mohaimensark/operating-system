@@ -1,0 +1,11 @@
+A thread and a process are both execution units in an operating system, but they differ in several key aspects:
+
+Memory Space: Each process has its own memory space, while threads within a process share the same memory space. This means that each process operates independently, with its own data and variables, while threads can access the same variables and data structures.
+
+Resource Usage: A process typically requires more resources, such as memory and system resources, than a thread. This is because a process has its own memory space, whereas threads share memory with the process that created them.
+
+Scheduling: Threads within a process are scheduled by the operating system to share the same CPU time, whereas each process has its own scheduling. This means that multiple threads within a process can run simultaneously, whereas processes run independently of each other.
+
+Communication: Threads within a process can communicate with each other directly and easily, as they share the same memory space. Processes, on the other hand, need to use inter-process communication mechanisms, such as pipes or sockets, to communicate with each other.
+
+In summary, threads are lighter-weight than processes and are useful for parallelism within a single application, while processes are independent units of execution 
