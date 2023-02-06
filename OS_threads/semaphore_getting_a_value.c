@@ -9,8 +9,9 @@
 
 sem_t sem;
 
-void* routine(void* args) {
-    int index = *(int*)args;
+void *routine(void *args)
+{
+    int index = *(int *)args;
     int semVal;
     sem_wait(&sem);
     sleep(index + 1);
@@ -22,20 +23,25 @@ void* routine(void* args) {
     free(args);
 }
 
-int main(int argc, char *argv[]) {
+int main(int argc, char *argv[])
+{
     pthread_t th[THREAD_NUM];
-    sem_init(&sem, 0, 4);
+    sem_init(&sem, 0, 1);
     int i;
-    for (i = 0; i < THREAD_NUM; i++) {
-        int* a = malloc(sizeof(int));
+    for (i = 0; i < THREAD_NUM; i++)
+    {
+        int *a = malloc(sizeof(int));
         *a = i;
-        if (pthread_create(&th[i], NULL, &routine, a) != 0) {
+        if (pthread_create(&th[i], NULL, &routine, a) != 0)
+        {
             perror("Failed to create thread");
         }
     }
 
-    for (i = 0; i < THREAD_NUM; i++) {
-        if (pthread_join(th[i], NULL) != 0) {
+    for (i = 0; i < THREAD_NUM; i++)
+    {
+        if (pthread_join(th[i], NULL) != 0)
+        {
             perror("Failed to join thread");
         }
     }

@@ -48,3 +48,7 @@ int main(int argc, char *argv[])
     printf("Global sum: %d\n", globalSum);
     return 0;
 }
+
+// Parallelism refers to the ability of a computer to perform multiple tasks at the same time, often by dividing a larger task into smaller subtasks and processing them simultaneously. It can be achieved by having multiple processing cores, multiple processors, or even multiple computers working together.
+
+// Concurrency, on the other hand, refers to the ability of a computer program to execute multiple tasks independently and asynchronously, in overlapping time intervals. It can be achieved by using threads, fibers, or asynchronous programming techniques. The tasks may be executed on a single processor or multiple processors

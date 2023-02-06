@@ -52,3 +52,7 @@ int main(int argc, char *argv[]) {
     sem_destroy(&semFuel);
     return 0;
 }
+
+// The main difference between a binary semaphore and a mutex is that a binary semaphore can be used to signal between two threads, while a mutex can only be used to synchronize access to a shared resource. Additionally, a binary semaphore can be used to synchronize the execution of multiple threads, while a mutex is limited to synchronizing access to a single shared resource.
+
+// In summary, a mutex is a low-level synchronization mechanism used to protect shared resources from concurrent access, while a binary semaphore is a higher-level synchronization mechanism used to signal between threads and synchronize the execution of multiple threads.
